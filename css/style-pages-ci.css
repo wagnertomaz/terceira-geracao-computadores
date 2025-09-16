@@ -1,0 +1,1256 @@
+:root {
+    /* --muito-claro: #D2CFCA;
+    --claro: #BDC4D4;
+    --medio: #52667E;
+    --escuro: #1D2E4A;
+    --muito-escuro: #0F1A2C; */
+
+    --color-1: #0E1E37;
+    --color-2: #15253F;
+
+    --color-3: #2C3D5B;
+    --color-3-transparent: rgb(44, 61, 91, 0.7);
+
+    --color-4: #7C8594;
+    --color-4-tranparent: rgb(124, 133, 148, 0.7);
+
+    --color-5: #b3b9c2;
+    --color-5-tranparent: rgb(179, 185, 194, 0.7);
+
+    --color-6: #DEDEE6;
+    --color-6-transparent: rgb(222, 222, 230, 0.7);
+
+}
+
+
+/* transições em degrade para cada tópico principal */
+.transition-dark-to-light {
+  height: 200px;
+  background: linear-gradient(var(--color-5), var(--color-3));
+}
+
+.transition-dark-only {
+    height: 200px;
+    background: linear-gradient(var(--color-3));
+}
+
+.transition-light-only {
+    height: 200px;
+    background: linear-gradient(var(--color-5));
+}
+
+.transition-light-to-dark {
+    height: 200px;
+    background: linear-gradient(var(--color-3), var(--color-5));  
+}
+
+/* reset dos valores padrões do boxmodel */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: montserrat;
+    text-decoration: none;
+}
+
+body {
+   background: var(--color-5);
+}
+
+html {
+    scroll-behavior: smooth; /* deixar a rolagem da página mais suave */
+    scrollbar-width: thin; /* diminui a largura do scrollbar */
+}
+
+img {
+    border-radius: 16px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.large-image-size {
+    width: 600px;
+}
+
+.gif-border {
+    border-radius: 8px;
+    /* box-shadow: 5px 5px 50px var(--color-3); */
+}
+
+
+/* ------------- HEADER ------------- */
+/* container do header */
+.header-container {
+    min-height: 100px;
+    margin-inline: 0.4%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+
+    top: 8px;
+    position: sticky;
+
+    z-index: 999;
+
+    border-radius: 8px;
+}
+
+/* icon de voltar a página principal do site */
+.home-button {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 27px;
+    border-radius: 8px;
+}
+
+.home-button a svg {
+    box-shadow: none;
+    color: var(--color-3);
+    transition: 0.3s ease-in-out;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.home-button a svg:hover {
+    box-shadow: none;
+    color: var(--color-5);
+    background: var(--color-3);
+    border-radius: 8px;
+}
+
+
+
+/* container da lista com os links de cada página */
+.list-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    width: 1300px;
+    gap: 50px;
+}
+
+.list-container li {
+    border-radius: 8px;
+    list-style: none;
+
+    width: 185.7px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease-in-out;
+}
+
+.list-container li:hover {
+    background-color: var(--color-3);
+}
+
+.list-container li a {
+    text-decoration: none;
+    
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.list-container li a:hover {
+    color: var(--color-5);
+}
+
+/* estilo dos links do navbar */
+.link-style {
+    color: var(--color-3);
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+
+/* ------------- NAVBAR ASIDE ESQUERDO ------------- */
+/* navbar esquerdo com os links dos tópicos */
+.topics-container {
+    top: 120px;
+    position: fixed;
+    height: 100vh;   /* altura da barra de tópicos */
+    width: 200px;
+    margin: 8px 0px 0px 8px;
+
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+
+    border-radius: 8px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-15px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.list-topics-container {
+    padding: 8px;
+}
+
+.list-topics-container li {
+    list-style: none;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 8px;
+
+    background: var(--color-5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+
+    border-radius: 6px;
+    margin-bottom: 8px;
+
+    transition: 0.3s ease-in-out;
+}
+
+.list-topics-container li:hover {
+    background: var(--color-3);
+}
+
+.list-topics-container li.active {
+  background: var(--color-3);
+}
+
+.list-topics-container li.active a {
+  color: var(--color-5);
+}
+
+.list-topics-container li a {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--color-2);
+    transition: 0.3s;
+}   
+
+.list-topics-container li a:hover {
+    color: var(--color-5);
+}
+
+.list-link-style {
+    font-weight: bold;
+}
+
+
+.topicos-style { /* estilo para todas as fontes dos tópicos e subtópicos das páginas */
+    font-size: 1.3rem;
+}
+
+.leftmenu.active > .link-button + .topics-container {
+    opacity: 1;
+    z-index: 9;
+    pointer-events: auto;
+    transform: translateY(-10px);
+}
+
+.link-button {
+    top: 110px;
+    position: fixed;
+
+    width: 42px;
+    height: 42px;
+
+    margin: 8px 0px 0px 8px;
+
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(10px);
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    z-index: 8;
+}
+
+.link-button img {
+    width: 100%;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 80%;
+    padding: 8px;
+}
+
+.leftmenu {
+    position: relative;
+}
+
+
+/* ------------- PRIMEIRO TÓPICO ------------- */
+#ci-primeiro-topico-container {
+    
+    margin: 0% 14% 0% 14% ;
+    background-color: var(--color-5);
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+    background-image: url(../images/circuitos_integrados/circuit_background_nb.png);
+    display: flex;
+    width: 85%;
+    height: auto;
+    border-radius: 25px;
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+
+
+
+/* main */
+.primeiro-main-container {
+   
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.primeiro h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-5);
+    
+}
+
+.primeiro-main-textos {
+    /* border: 1px solid red; */
+
+    width: 100%;
+    
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 50px;
+}
+
+.primeiro-main-textos ul li {   /* subtópicos da primeira página */
+     margin: 50px 0px;
+
+    color: #0E1E37;
+    text-shadow: 1px 1px 2px var(--color-3);
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 23px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.primeiro-main-textos ul li::before {
+    content: "•";
+    color: var(--color-2);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.primeiro-main-imagem {
+    width: 100%;
+    height: 100%;
+    padding: 0px 50px;
+
+    display: flex;
+    justify-content: center; /* centraliza horizontal */
+    align-items: center;
+}
+
+.primeiro_img {
+    border-radius: 25px;
+    width: 80vh;
+    height: 100%;
+}
+
+.primeiro-main-imagem iframe {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.intro-style {
+    /* background: var(--dark-color-sec); */
+    border-radius: 8px;
+}
+
+.esquerda-container {
+    /* border: 1px solid rgb(222, 251, 2); */
+    width: 215px;
+    top: auto;
+    position: static;
+}
+
+.direita-container {
+    /* border: 1px solid green; */
+    width: 215px;
+}
+
+
+/* ------------- SEGUNDO TÓPICO ------------- */
+#ci-segundo-topico-container {
+   
+    margin: 2% 14% 0% 14% ;
+    background-color: var(--color-5);
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+    width: 85%;
+    height: auto;
+    border-radius: 25px;
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+/* main */
+.segundo-main-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.segundo h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-5);
+}
+
+.segundo-main-textos {
+    width: 87%;
+    
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+
+    padding: 0px 50px;
+}
+
+.segundo-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: #0E1E37;
+    text-shadow: 1px 1px 2px var(--color-3);
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 23px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.segundo-main-textos ul li::before {
+    content: "•";
+    color: var(--color-2);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.segundo-main-imagem {
+   width: 140vh;
+   height: 100%;
+  
+}
+
+.segundo_img {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center; /* centraliza imagem dentro do figure */
+    align-items: center; 
+}
+
+.segundo-main-imagem iframe {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.intro-style {
+    /* background: var(--dark-color-sec); */
+    border-radius: 8px;
+}
+
+.esquerda-container {
+    /* border: 1px solid rgb(222, 251, 2); */
+    width: 215px;
+    top: auto;
+    position: static;
+}
+
+.direita-container {
+    /* border: 1px solid green; */
+    width: 215px;
+}
+
+
+/* ------------- TERCEIRO TÓPICO ------------- */
+#ci-terceiro-topico-container {
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px;
+    display: flex; 
+}
+
+.terceiro-main-container {
+    flex: 1;
+    margin: 2%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-1);
+    /* background-image: url(../images/circuitos_integrados/circuits.jpg);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+    
+}
+
+.terceiro_grad {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background: #0E1E37;
+    background: linear-gradient(315deg, rgba(0, 0, 0, 0.466) 0%, rgba(255, 255, 255, 0.288) 100%);
+}
+
+.terceiro-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 80px 50px;
+
+}
+
+.hr_div {
+    margin-bottom: 80px;
+}
+
+.prot_text {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 0px 50px;
+}
+
+.prot_text ul li {
+    margin: 50px 0px;
+
+    color: var(--color-5);
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    list-style: none;
+    padding-left: 0;
+
+}
+
+.prot_text ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.terceiro h2 {  /* título da primeira página */
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.terceiro-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: #f1f1f1;
+    text-shadow: 4px 4px 4px #0E1E37;
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 25px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.terceiro-main-textos ul li::before {
+    content: "•";
+    color: #f1f1f1;
+    font-weight: bold;
+    margin-right: 8px; 
+    
+}
+
+
+.terceiro-main-imagem img{
+    /* border: 1px solid red; */
+    max-width: 100%;   /* nunca ultrapassa a largura do container */
+    max-height: 100%;  /* nunca ultrapassa a altura do container */
+    object-fit: contain; /* mostra a imagem inteira, sem cortes */
+    display: block; 
+}
+.terceiro-main-imagem {
+
+    width: 100vh;
+   
+}
+
+.terceiro_img { 
+    object-fit: contain;
+    width: 100%;
+}
+
+
+/* ------------- QUARTO TÓPICO ------------- */
+#ci-quarto-topico-container {
+    
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+}
+
+.quarto-main-container {
+    margin: 100%;
+    flex: 1;
+    margin: 2%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-1);
+    /* background-image: url(../images/circuitos_integrados/circuits.jpg);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/*.quarto_grad {
+height: 100%;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}*/
+
+.quarto-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 80px 50px;
+}
+
+.quarto h2 {  /* título da primeira página */
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.quarto-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+    color: var(--color-5);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.quarto-main-textos ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.quarto-main-imagem img{
+    /* border: 1px solid red; */
+    max-width: 100%;   /* nunca ultrapassa a largura do container */
+    max-height: 100%;  /* nunca ultrapassa a altura do container */
+    object-fit: contain; /* mostra a imagem inteira, sem cortes */
+    display: block; 
+}
+.quarto-main-imagem {
+
+    margin-right: 5%;
+    width: 120vh;
+   
+}
+
+.quarto_img {
+    box-shadow: none;
+    width: 100%;
+    border-radius: 45px;
+}
+
+
+/* ------------- QUINTO TÓPICO ------------- */
+#ci-quinto-topico-container {
+  min-height: calc(100vh - 100px);
+  scroll-margin-top: 100px;
+  background: var(--color-5);
+  display: flex;
+}
+
+
+/* main */
+.quinto-main-container {
+    border: 1px solid green; 
+
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.quinto-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 80px 50px;
+}
+
+.quinto-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-2);
+}
+
+.quinto-main-textos ul li {   /* subtópicos da primeira página */
+     margin: 50px 0px;
+
+    color: #f1f1f1;
+    text-shadow: 1px 1px 2px var(--color-3);
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 23px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.quinto-main-textos ul li::before {
+    content: "•";
+    color: #f1f1f1;
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.quinto-main-imagem {
+    width: 100%;
+}
+
+.quinto_img {
+    width: 100%;
+}
+
+
+/* ------------- SEXTO TÓPICO ------------- */
+#ci-sexto-topico-container {
+  min-height: calc(100vh - 100px);
+  scroll-margin-top: 100px;
+  background: var(--color-3);
+  display: flex;
+}
+
+
+.controversias-main-container {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    background: linear-gradient(338deg,rgba(44, 61, 91, 0.79) 0%, rgba(179, 185, 194, 1) 100%);
+    backdrop-filter: blur(10px); /*obrigado amigo*/
+
+}
+
+.grad {
+    /* From https://css.glass */
+background: rgba(0, 0, 0, 0.322);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.sexto-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    padding: 80px 50px;
+}
+
+.sexto-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-3);
+
+}
+
+.sexto-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: #f1f1f1;
+    text-shadow: 1px 1px 2px var(--color-3);
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 23px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.sexto-main-textos ul li::before {
+    content: "•";
+    color: #f1f1f1;
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+/*.sexto-main-imagem {
+    /* border: 1px solid red; 
+}*/
+
+   
+
+
+.sexto_img {
+    width: 100%;
+}
+
+.subsub-topic {
+    padding-top: 25px;
+    padding-left: 50px;
+}
+
+/* ------------- SÉTIMO TÓPICO ------------- */
+#ci-setimo-topico-container {
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px;
+
+    background: var(--color-3);
+
+    display: flex; 
+}
+
+.setimo-main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.setimo-main-textos {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 80px 50px;
+}
+
+.setimo-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.setimo-main-textos ul li {   /* subtópicos da primeira página */
+     margin: 50px 0px;
+
+    color: #f1f1f1;
+    text-shadow: 4px 4px 4px #0E1E37;
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 25px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.setimo-main-textos ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.setimo-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+/*============================================================================== MODIFICAÇÕES =============================================================================*/
+
+/*#bg-video {
+    position: fixed;   
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;       
+    object-fit: cover; 
+}
+*/
+
+/*---------------------------------------------|NAV|----------------------------------------------*/
+.container_nav{
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 15px;   
+}
+
+.nav_grad {
+    margin: 0 auto;
+    width: 50%;
+    padding: 5px;
+    backdrop-filter: blur(25px) saturate(250%);
+    -webkit-backdrop-filter: blur(25px) saturate(250%);
+    background-color: rgba(17, 25, 40, 0);
+    border-radius: 12px;
+}
+
+.nav_items { 
+   
+    display: flex; /*por algum motivo o display flex teve que vir nesse container. no nav items a, ele fez que os itens ficassem uns debaixo dos outros*/ /* faz o border solid red pra ver pq*/
+    gap: 130px;
+    justify-content: center;
+}
+
+.nav_items_a {
+    border-radius: 7px;
+    font-family: Quicksand;
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.nav_items_a:hover {
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    color: #204c80;
+    transition: 0.2s;
+}
+/*---------------------------------------------|NAV|----------------------------------------------*/
+/*-------------------------------------------|HEADER|---------------------------------------------*/
+
+.header_container{
+    margin: 10px;
+    position: relative;
+    height: 100vh;
+    border-radius: 25px;
+    background-color: #204c80;
+    z-index: 1;
+}
+
+.one {
+    border: solid red;
+}
+
+.header_grad {
+    position: absolute; /* herdar exatamente as mesmas dimensões do pai*/
+    inset: 0; /*  equivale a: top:0; right:0; bottom:0; left:0; */
+    border-radius: 25px;
+    padding: 29px;
+    background: linear-gradient(125deg,rgba(0, 0, 0, 0.651) 0%, rgba(255, 255, 255, 0.548) 100%);
+}
+
+.header_content {
+    width: 100%;
+    /* border: solid red; */
+    position: absolute; /* Ela faz com que o elemento “saia” da hierarquia estabelecida pelo HTML – na prática, ele é filho da página e não de um elemento qualquer no HTML definido. Assim, é possível posicionarmos esse elemento em qualquer lugar da página, independentemente do que temos lá. */
+    top: 90px; right: 0; bottom: 0; left: 0;
+    border-radius: 25px;
+    margin: 0;
+    overflow: hidden;
+
+   
+    /* border: solid rgb(0, 255, 76); */
+}
+
+figure {
+
+    margin: 0;
+    display: flex;
+    /* border: solid rgb(38, 0, 255); */
+    border-radius: 25px;
+    overflow: hidden;
+    justify-content: right;
+
+}
+
+.header_image {
+    box-shadow: none;
+
+}
+
+.header_text {
+    position: absolute;   /* fica por cima */
+    top: 50%;             /* centraliza verticalmente */
+    left: 50%;            /* centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* ajusta centro */
+    font-size: 80px;
+    color: #dbdfe4;
+    font-family: Michroma;
+    z-index: 2;    
+    white-space: nowrap; 
+}
+/*-------------------------------------------|HEADER|---------------------------------------------*/
+/*--------------------------------------------|MAIN|----------------------------------------------*/
+
+/*.first_main {
+    background-image: url(../images/circuitos_integrados/unnamed-Photoroom.png);
+    background-repeat: no-repeat;
+    background-size: 40% auto;
+    background-position: left;
+}*/
+.criadores {
+    margin: 0% 2% 0% 2%;
+    border: solid var(--color-2);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/*.criadores_grad {
+    background-image: url(../images/circuitos_integrados/arco_circuito.png);
+    background-size: contain;
+    background-color: var(--color-1);
+    background-repeat: no-repeat;
+}*/
+
+.criadores_background {
+    background-image: url(../images/circuitos_integrados/icarc2-Photoroom.png);
+    background-color: var(--color-3);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.primeiro_title {
+    background: -webkit-linear-gradient(135deg, #000000, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.segundo_title {
+    margin-top: 5%;
+    background: -webkit-linear-gradient(135deg, #000000, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.setimo_text {
+    font-size: 70px;
+    background: -webkit-linear-gradient( #0062ff, #97c1ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.criadores_text {
+    margin: 4% 0% 4% 0%;
+    font-family: montserrat;
+    text-align: center;
+    font-size: 70px;
+    background: -webkit-linear-gradient( #000000, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.controversias {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0% 14% 0% 14%;
+    gap: 80px;
+    
+}
+
+
+.controversias_text {
+    margin: 50px;
+    background-color: var(--color-5);
+    color: var(--color-3);
+    text-align: center;
+    font-size: 70px;
+    background: -webkit-linear-gradient( #000000, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+
+
+.img_topico2 {
+    width: 100%;
+}
+
+.img_topico3 {
+    width: 100%;
+}
+
+.primeiro_grad {
+   
+    padding: 10px;
+    border-radius: 25px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.692);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.kilby_prot_container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;           /* usa flexbox */
+    flex-direction: column;  /* imagem em cima, legenda embaixo */
+    align-items: center; 
+}
+
+.kilby_prot {
+    width: 80%;
+}
+
+.caption_kilby {
+    display: block;       /* legenda embaixo */
+    margin-top: 10px;     /* espaço entre imagem e legenda */
+    text-align: center;   /* centraliza o texto */
+}
+
+.noyce_prot {
+    height: 100%;
+}
+
+.noyce_text {
+    background: -webkit-linear-gradient(135deg, #97c1ff, #0E1E37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.kilby_text {
+    padding: 2%;
+    background: -webkit-linear-gradient(135deg, #97c1ff, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.kilby_text_background {
+    border-radius: 25px 25px 0px 0px;
+    background-color: var(--color-1);
+}
+
+.caption_kilby {
+    color: var(--color-5)
+}
+
+.controversias-main-imagem {
+    border-radius: 25px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.controversias-main-imagem img {
+    width: 100%;
+    max-width: 800px;
+    height: 700px;      /* altura fixa */
+    object-fit: cover;  /* corta a imagem sem distorcer */
+    padding: 5%;
+}
+
+.prot_text ul li {
+    margin: 50px 0px;
+    color: #f1f1f1;
+    text-shadow: 4px 4px 4px #0E1E37;
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+    font-size: 23px;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+
+.controversias > section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+}
+
+.planar_text {
+    margin: 4%;
+    background: -webkit-linear-gradient(135deg, #97c1ff, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.planar {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.noyce_prot {
+    display: flex;
+}
+
+.noyce_prot_container {
+    display: flex;
+    justify-content: center; /* centraliza imagem dentro do figure */
+    align-items: center; 
+    width: 100%;
+}
+
+.noyce_prot_img {
+   max-height: 100%;
+    object-fit: cover;
+}
+
+.arjun_text {
+    background: -webkit-linear-gradient(135deg, #000000, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.berlin_text {
+    background: -webkit-linear-gradient(135deg, #000000, #0062ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,1030 @@
+:root {
+    /* --muito-claro: #D2CFCA;
+    --claro: #BDC4D4;
+    --medio: #52667E;
+    --escuro: #1D2E4A;
+    --muito-escuro: #0F1A2C; */
+
+    --color-1: #0E1E37;
+    --color-2: #15253F;
+
+    --color-3: #2C3D5B;
+    --color-3-transparent: rgb(44, 61, 91, 0.7);
+
+    --color-4: #7C8594;
+    --color-4-tranparent: rgb(124, 133, 148, 0.7);
+
+    --color-5: #b3b9c2;
+    --color-5-tranparent: rgb(179, 185, 194, 0.7);
+
+    --color-6: #DEDEE6;
+    --color-6-transparent: rgb(222, 222, 230, 0.7);
+
+}
+
+
+/* transições em degrade para cada tópico principal */
+.transition-dark-to-light {
+    height: 200px;
+    background: linear-gradient(var(--color-5), var(--color-3));
+}
+
+.transition-dark-only {
+    height: 200px;
+    background: linear-gradient(var(--color-3));
+}
+
+.transition-light-only {
+    height: 200px;
+    background: linear-gradient(var(--color-5));
+}
+
+.transition-light-to-dark {
+    height: 200px;
+    background: linear-gradient(var(--color-3), var(--color-5));  
+}
+
+/* reset dos valores padrões do boxmodel */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+body {
+   background: var(--color-5);
+}
+
+html {
+    scroll-behavior: smooth; /* deixar a rolagem da página mais suave */
+    scrollbar-width: thin; /* diminui a largura do scrollbar */
+}
+
+img {
+    border-radius: 16px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+    width: 90%;
+}
+
+video {
+   width: 90%; 
+}
+
+.gif-border {
+    border-radius: 8px;
+    /* box-shadow: 5px 5px 50px var(--color-3); */
+}
+
+.primeiro-topico-container-sumario {
+    background-color: var(--color-5);
+    
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+}
+
+.primeiro-main-container-sumario {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: calc(150vh - 100px);
+}
+
+.primeiro-main-container-sumario h2 {
+    font-size: 3rem;
+    color: #2C3D5B;
+}
+
+.sumario-titulo {
+    font-size: 1.5rem;
+    list-style: none;
+    color: #2C3D5B;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.sumario-topico {
+    font-size: 1rem;
+    list-style: none;
+    color: #2C3D5B;
+    padding-left: 16px;
+    margin-bottom: 2px;
+}
+
+.sumario-topico a {
+    color: #2C3D5B;
+}
+
+
+/* ------------- HEADER ------------- */
+/* container do header */
+.header-container {
+    min-height: 100px;
+    margin-inline: 0.4%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+
+    top: 8px;
+    position: sticky;
+
+    z-index: 999;
+
+    border-radius: 8px;
+}
+
+/* icon de voltar a página principal do site */
+.home-button {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 27px;
+    border-radius: 8px;
+}
+
+.home-button a svg {
+    box-shadow: none;
+    color: var(--color-3);
+    transition: 0.3s ease-in-out;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.home-button a svg:hover {
+    box-shadow: none;
+    color: var(--color-5);
+    background: var(--color-3);
+    border-radius: 8px;
+}
+
+
+
+/* container da lista com os links de cada página */
+.list-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    width: 1300px;
+    gap: 50px;
+}
+
+.list-container li {
+    border-radius: 8px;
+    list-style: none;
+
+    width: 185.7px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease-in-out;
+    
+}
+
+.list-container li:hover {
+    background-color: var(--color-3);
+}
+
+.list-container li a {
+    text-decoration: none;
+    
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.list-container li a:hover {
+    color: var(--color-5);
+}
+
+/* estilo dos links do navbar */
+.link-style {
+    color: var(--color-3);
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+
+/* ------------- NAVBAR ASIDE ESQUERDO ------------- */
+/* navbar esquerdo com os links dos tópicos */
+.topics-container {
+    top: 120px;
+    position: fixed;
+    height: 100vh;   /* altura da barra de tópicos */
+    width: 200px;
+    margin: 8px 0px 0px 8px;
+
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+
+    border-radius: 8px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-15px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.list-topics-container {
+    padding: 8px;
+}
+
+.list-topics-container li {
+    list-style: none;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 8px;
+
+    background: var(--color-5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+
+    border-radius: 6px;
+    margin-bottom: 8px;
+
+    transition: 0.3s ease-in-out;
+}
+
+.list-topics-container li:hover {
+    background: var(--color-3);
+}
+
+.list-topics-container li.active {
+  background: var(--color-3);
+}
+
+.list-topics-container li.active a {
+  color: var(--color-5);
+}
+
+.list-topics-container li a {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--color-2);
+    transition: 0.3s;
+}   
+
+.list-topics-container li a:hover {
+    color: var(--color-5);
+}
+
+.list-link-style {
+    font-weight: bold;
+}
+
+
+.topicos-style { /* estilo para todas as fontes dos tópicos e subtópicos das páginas */
+    font-size: 1.3rem;
+}
+
+.leftmenu.active > .link-button + .topics-container {
+    opacity: 1;
+    z-index: 9;
+    pointer-events: auto;
+    transform: translateY(-10px);
+}
+
+.link-button {
+    top: 110px;
+    position: fixed;
+
+    width: 42px;
+    height: 42px;
+
+    margin: 8px 0px 0px 8px;
+
+    background: var(--color-6-transparent);
+    backdrop-filter: blur(10px);
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    z-index: 8;
+}
+
+.link-button img {
+    width: 100%;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 80%;
+    padding: 8px;
+}
+
+.leftmenu {
+    position: relative;
+}
+
+
+/* ------------- PRIMEIRO TÓPICO ------------- */
+#primeiro-topico-container {
+    background-color: var(--color-5);
+    
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+}
+
+/* main */
+.primeiro-main-container {
+    /* border: 1px solid green; */
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.primeiro-main-textos {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.primeiro-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-2);
+
+}
+
+.primeiro-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-2);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.primeiro-main-textos ul li::before {
+    content: "•";
+    color: var(--color-2);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.primeiro-main-imagem {
+    /* border: 1px solid red; */
+    padding: 0px 50px;
+}
+
+.primeiro-main-imagem iframe {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.intro-style {
+    /* background: var(--dark-color-sec); */
+    border-radius: 8px;
+}
+
+.esquerda-container {
+    min-width: 4%;
+    top: auto;
+    position: static;
+}
+
+.direita-container {
+    min-width: 4%;
+}
+
+
+/* ------------- SEGUNDO TÓPICO ------------- */
+#segundo-topico-container {
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px;
+
+    background: var(--color-3);
+
+    display: flex; 
+}
+
+.segundo-main-container {
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.segundo-main-textos {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+
+    flex: 1;
+}
+
+.segundo-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.segundo-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-5);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.segundo-main-textos ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.segundo-main-imagem {
+    padding: 0px 50px;
+    flex: 1;
+}
+
+
+/* ------------- TERCEIRO TÓPICO ------------- */
+#terceiro-topico-container {
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px;
+
+    background: var(--color-3);
+
+    display: flex; 
+}
+
+.terceiro-main-container {
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.terceiro-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.terceiro-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.terceiro-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-5);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.terceiro-main-textos ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.terceiro-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+
+/* ------------- QUARTO TÓPICO ------------- */
+#quarto-topico-container {
+    background-color: var(--color-5);
+    
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+}
+
+.quarto-main-container {
+    /* border: 1px solid green; */
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quarto-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.quarto-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-2);
+
+}
+
+.quarto-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-2);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.quarto-main-textos ul li::before {
+    content: "•";
+    color: var(--color-2);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.quarto-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+
+/* ------------- QUINTO TÓPICO ------------- */
+#quinto-topico-container {
+    background-color: var(--color-5);
+    
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+}
+
+/* main */
+.quinto-main-container {
+    /* border: 1px solid green; */
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quinto-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.quinto-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-2);
+
+}
+
+.quinto-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-2);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.quinto-main-textos ul li::before {
+    content: "•";
+    color: var(--color-2);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.quinto-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+
+/* ------------- SEXTO TÓPICO ------------- */
+#sexto-topico-container {
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px;
+
+    background: var(--color-3);
+
+    display: flex; 
+}
+
+.sexto-main-container {
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sexto-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.sexto-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.sexto-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-5);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.sexto-main-textos ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.sexto-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+.subsub-topic {
+    padding-top: 25px;
+    padding-left: 50px;
+}
+
+.subsub-topic-two {
+    padding-top: 25px;
+    padding-left: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-5);
+}
+
+/* ------------- TERCEIRO TÓPICO ------------- */
+#setimo-topico-container {
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px;
+
+    background: var(--color-3);
+
+    display: flex; 
+}
+
+.setimo-main-container {
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.setimo-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.setimo-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-5);
+
+}
+
+.setimo-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-5);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.setimo-main-textos ul li::before {
+    content: "•";
+    color: var(--color-5);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.setimo-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+
+/* ------------- OITAVO TÓPICO ------------- */
+#oitavo-topico-container {
+    background-color: var(--color-5);
+    
+    min-height: calc(100vh - 100px);
+    scroll-margin-top: 100px; /* <- Define espaço no topo quando o elemento é alcançado por um link âncora (#id), bom para não ficar escondido atrás de um header fixo */
+
+    display: flex;
+}
+
+.oitavo-main-container {
+    /* border: 1px solid green; */
+    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.oitavo-main-textos {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 50px;
+}
+
+.oitavo-main-textos h2 {  /* título da primeira página */
+    font-size: 3rem;
+    color: var(--color-2);
+
+}
+
+.oitavo-main-textos ul li {   /* subtópicos da primeira página */
+    margin: 50px 0px;
+
+    color: var(--color-2);
+
+    /* "list-style-position: inside" <--- para que a bolinha do tópico fique dentro do elemento */
+
+    list-style: none;
+    padding-left: 0;
+}
+
+.oitavo-main-textos ul li::before {
+    content: "•";
+    color: var(--color-2);
+    font-weight: bold;
+    margin-right: 8px; 
+}
+
+.oitavo-main-imagem {
+    /* border: 1px solid red; */
+
+    padding: 0px 50px;
+}
+
+.primeiro-main-textos,
+.segundo-main-textos,
+.terceiro-main-textos,
+.quarto-main-textos,
+.quinto-main-textos,
+.sexto-main-textos,
+.setimo-main-textos,
+.oitavo-main-textos {
+    flex: 1;
+}
+
+.primeiro-main-textos ul li,
+.segundo-main-textos ul li,
+.terceiro-main-textos ul li,
+.quarto-main-textos ul li,
+.quinto-main-textos ul li,
+.sexto-main-textos ul li,
+.setimo-main-textos ul li,
+.oitavo-main-textos ul li {
+    font-weight: 500;
+}
+
+
+.primeiro-main-imagem,
+.segundo-main-imagem,
+.terceiro-main-imagem,
+.quarto-main-imagem,
+.quinto-main-imagem,
+.sexto-main-imagem,
+.setimo-main-imagem,
+.oitavo-main-imagem {
+    flex: 1;
+}
+
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 1500px) {
+
+    /* container da lista com os links de cada página */
+    .list-container {
+        width: 60rem;
+        gap: 50px;
+        font-size: 0.9rem;
+    }
+
+    .home-button {
+        width: 32px;
+        height: 32px;
+
+    }
+
+    .topics-container {
+        width: 150px;
+    }
+
+    .list-topics-container {
+        padding: 8px;
+    }
+
+    .list-topics-container li {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1500px) {
+    .primeiro-main-textos h2,
+    .segundo-main-textos h2,
+    .terceiro-main-textos h2,
+    .quarto-main-textos h2,
+    .quinto-main-textos h2,
+    .sexto-main-textos h2,
+    .setimo-main-textos h2,
+    .oitavo-main-textos h2 {
+        font-size: 2rem;
+    }
+
+    .primeiro-main-textos ul li,
+    .segundo-main-textos ul li,
+    .terceiro-main-textos ul li,
+    .quarto-main-textos ul li,
+    .quinto-main-textos ul li,
+    .sexto-main-textos ul li,
+    .setimo-main-textos ul li,
+    .oitavo-main-textos ul li {
+        font-size: 1.1rem;
+    }
+
+    video {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1000px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    main figure, main div {
+        padding: 20px;
+    }
+
+    .primeiro-main-textos,
+    .segundo-main-textos,
+    .terceiro-main-textos,
+    .quarto-main-textos,
+    .quinto-main-textos,
+    .sexto-main-textos,
+    .setimo-main-textos,
+    .oitavo-main-textos {
+        width: 90%;
+        padding: 20px;
+    }
+
+    img, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .topicos-style {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .topics-container {
+        display: none; /* esconde o menu lateral */
+    }
+    
+    .link-button {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        position: fixed;
+        z-index: 999;
+    }
+}
+
+@media (max-width: 800px) {
+    .home-button {
+        width: 32px;
+        height: 32px;
+        left: 10px;
+    }
+}
