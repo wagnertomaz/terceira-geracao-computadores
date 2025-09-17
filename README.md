@@ -6,7 +6,7 @@ O objetivo do seminário era apresentar o tema **3ª Geração de Computadores**
 Desenvolvemos um **site interativo** para expor o conteúdo.
 
 <a href="https://wagnertomaz.github.io/terceira-geracao-computadores" target="_blank">🔗 Acesse o site</a><br><br>
-<img src="./images/image.png" alt="Demonstração do site" width="600">
+<img src="./images/image.png" alt="Demonstração do site" width="100%">
 
 ---
 
