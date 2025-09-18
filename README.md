@@ -44,6 +44,6 @@ O site apresenta:
 ├── index.html        # Página inicial
 ├── /pages            # Conteúdos divididos por páginas
 ├── /css              # Estilos do site
-├── /imagens          # Imagens utilizadas
+├── /images          # Imagens utilizadas
 ├── /video            # Vídeos utilizados
 └── /js               # Scripts (menu interativo)
