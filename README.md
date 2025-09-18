@@ -1,4 +1,4 @@
-# 💻 Terceira Geração de Computadores
+# Terceira Geração de Computadores
 
 Projeto de site criado para o trabalho da disciplina de **Arquitetura e Organização de Computadores** no curso de **Análise e Desenvolvimento de Sistemas** da **FATEC Guaratinguetá**.  
 
@@ -10,7 +10,7 @@ Desenvolvemos um **site interativo** para expor o conteúdo.
 
 ---
 
-## 📚 Sobre o Trabalho
+## Sobre o Trabalho
 
 - **Disciplina:** Arquitetura e Organização de Computadores  
 - **Tema:** Terceira Geração de Computadores (1964–1971)  
@@ -25,7 +25,7 @@ O site apresenta:
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **HTML5**  
 - **CSS3**  
@@ -37,7 +37,7 @@ O site apresenta:
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```bash
 .
